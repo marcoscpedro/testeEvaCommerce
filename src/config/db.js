@@ -1,11 +1,12 @@
-const connect = async () => {
-    const mysql = require('mysql2/promise')
-    const connection = mysql.createConnection({
+
+const mysql = require('mysql2')
+const pool = mysql.createPool({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE
-    })
-    return connection
-}
-module.exports = connect()
+        database: process.env.DB_DATABASE,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
+})
+module.exports = pool.promise()

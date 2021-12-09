@@ -7,6 +7,7 @@ const userTable = async () => {
             name VARCHAR(254) NOT NULL,
             email VARCHAR(254) UNIQUE NOT NULL,
             password VARCHAR(254) NOT NULL,
+            token VARCHAR(255),
             createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`)
