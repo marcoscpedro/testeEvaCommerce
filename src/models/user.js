@@ -7,7 +7,7 @@ class User {
         const sql = `INSERT INTO users(name, email, password) VALUES(?,?,?)`
         const values = [Obj.name, Obj.email, md5(Obj.password)]
         try {
-            const user = await database.execute(sql,values)
+            const user = (await database).execute(sql,values)
             return {
                 id:user[0].insertId,
             }
