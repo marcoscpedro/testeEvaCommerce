@@ -22,6 +22,13 @@ class Authentication {
         })
     }
 
+    static async getUserId(jwtToken){
+        const jwt = jwtToken.split(' ')[1]
+        const sql = `SELECT * FROM users WHERE token=?`
+        const userId = await database.execute(sql,[jwt])
+        return userId[0][0].id
+    }
+
 
 }
 module.exports = Authentication

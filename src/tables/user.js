@@ -1,7 +1,7 @@
 const database = require("../config/db")
 
 const userTable = async () => {
-    (await database).execute(
+    await database.execute(
         `CREATE TABLE IF NOT EXISTS users(
             id INT PRIMARY KEY AUTO_INCREMENT,
             name VARCHAR(254) NOT NULL,
