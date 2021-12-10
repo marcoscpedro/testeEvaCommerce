@@ -12,7 +12,7 @@ class Authentication {
         return token
     }
 
-    static verify() {
+    static verify(jwtToken) {
         const decoded = jwt.verify(jwtToken.split(' ')[1], 'secret', (err, data) => {
             if (err) {
                 throw err
